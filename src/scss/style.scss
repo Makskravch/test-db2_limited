@@ -4,11 +4,13 @@
 @import "extends";
 @import "mixins";
 @import "reset";
-@import "general";
-@import "Slick/slick", "Slick/slick-theme";
+@import "global";
+
+// Module
+@import "nav";
+@import "breadcrumbs";
+@import "chat";
 
 // General
-@import "general/header/header";
-@import "general/footer/footer";
-
-// Pages
+@import "header";
+@import "aside";

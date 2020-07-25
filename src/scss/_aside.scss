@@ -1,0 +1,15 @@
+.aside {
+	grid-area: aside;
+	padding: 18px 0;
+	background-color: $blue_0;
+	overflow-y: auto;
+
+	&__logo {
+		width: 35px;
+		margin: 0 auto 72px;
+
+		a {
+			display: block;
+		}
+	}
+}

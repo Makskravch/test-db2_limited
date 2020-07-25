@@ -6,3 +6,24 @@
 	opacity: 0;
 	visibility: hidden;
 }
+
+.page-container {
+	display: grid;
+	grid-template: 
+		"aside header header" 60px
+		"aside main main" auto / 80px 1fr 1fr;
+	height: 100vh;
+}
+
+.main {
+	grid-area: main;
+	padding: 42px 45px 105px;
+
+	&__inner {
+		height: 100%;
+	}
+
+	&__chat {
+		height: 100%;
+	}
+}

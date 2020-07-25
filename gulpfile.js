@@ -85,37 +85,37 @@ function css() {
 }
 
 function js() {
-  return browserify(path.src.js)
-  .bundle()
-	.pipe(source('main.js'))
-	.pipe(streamify(sourcemaps.init()))
-	.pipe(streamify(sourcemaps.write()))
-  .pipe(dest(path.build.js))
-  .pipe(streamify(uglify()))
-	.pipe(rename({ extname: '.min.js' }))
-	.pipe(dest(path.build.js))
-	.pipe(browsersync.stream())
+	return browserify(path.src.js)
+		.bundle()
+		.pipe(source('main.js'))
+		.pipe(streamify(sourcemaps.init()))
+		.pipe(streamify(sourcemaps.write()))
+		.pipe(dest(path.build.js))
+		.pipe(streamify(uglify()))
+		.pipe(rename({ extname: '.min.js' }))
+		.pipe(dest(path.build.js))
+		.pipe(browsersync.stream())
 }
 
 function fonts() {
 	return src(path.src.fonts)
-	.pipe(dest(path.build.fonts))
+		.pipe(dest(path.build.fonts))
 }
 
 function img() {
 	return src(path.src.img)
-	.pipe(imagemin({
-		interlaced: true,
-    progressive: true,
-    optimizationLevel: 3
-	}))
-	.pipe(dest(path.build.img))
-	.pipe(browsersync.stream())
+		.pipe(imagemin({
+			interlaced: true,
+			progressive: true,
+			optimizationLevel: 3
+		}))
+		.pipe(dest(path.build.img))
+		.pipe(browsersync.stream())
 }
 
 function iconFont() {
-	let runTimestamp = Math.round(Date.now()/1000);
-	return src(path.src.icons, {base: sourceFolder})
+	let runTimestamp = Math.round(Date.now() / 1000);
+	return src(path.src.icons, { base: sourceFolder })
 		.pipe(iconfontCss({
 			fontName: fontName,
 			path: 'src/scss/template/_icons.scss',

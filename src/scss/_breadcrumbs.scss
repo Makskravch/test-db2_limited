@@ -1,0 +1,40 @@
+.breadcrumbs {
+
+	ul {
+		display: flex;
+	}
+
+	li {
+		display: flex;
+		align-items: center;
+		margin-right: 12px;
+
+		&::before {
+			content: "";
+			display: inline-block;
+			height: 7px;
+			width: 7px;
+			border-right: 1px solid $green_0;
+			border-bottom: 1px solid $green_0;
+			margin-right: 12px;
+			transform: rotate(-45deg);
+		}
+
+		&:first-child {
+
+			&::before {
+				display: none;
+			}
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	a {
+		@include font(13px, 15px, "Roboto-Regular");
+
+		color: $black_1;
+	}
+}

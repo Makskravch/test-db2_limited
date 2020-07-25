@@ -1,19 +1,14 @@
-$(function () {
+document.addEventListener('DOMContentLoaded', function () {
 
-	$('a[href*="#"]').on('click', function (event) {
+	let nav = document.getElementById('nav')
 
-		// Make sure this.hash has a value before overriding default behavior
-		if (this.hash !== "") {
+	if (nav) {
+		let divs = nav.querySelectorAll('i > div')
 
-			event.preventDefault();
-
-			let hash = this.hash;
-
-			$('html, body').animate({
-				scrollTop: $(hash).offset().top - 100
-			}, 500, function () {
-				window.location.hash = hash;
-			});
+		for (const val of divs) {
+			if (!val.dataset.counter) {
+				val.classList.add('is-hidden')
+			}
 		}
-	});
-})
+	}
+});

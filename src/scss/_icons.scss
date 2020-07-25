@@ -1,0 +1,80 @@
+@font-face {
+	font-family: "iconfont";
+	src: url('../fonts/icons/iconfont.eot');
+	src: url('../fonts/icons/iconfont.eot?#iefix') format('eot'),
+		url('../fonts/icons/iconfont.woff2') format('woff2'),
+		url('../fonts/icons/iconfont.woff') format('woff'),
+		url('../fonts/icons/iconfont.ttf') format('truetype'),
+		url('../fonts/icons/iconfont.svg#iconfont') format('svg');
+}
+
+@mixin icon-styles {
+	font-family: "iconfont";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+}
+
+%icon {
+	@include icon-styles;
+}
+
+@function icon-char($filename) {
+	$char: "";
+
+	@if $filename == calendar {
+		$char: "\E001";
+	}
+	@if $filename == handyman-tools {
+		$char: "\E002";
+	}
+	@if $filename == logo {
+		$char: "\E003";
+	}
+	@if $filename == messages {
+		$char: "\E004";
+	}
+	@if $filename == my-profile {
+		$char: "\E005";
+	}
+	@if $filename == team {
+		$char: "\E006";
+	}
+
+	@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %icon;
+		} @else {
+			@include icon-styles;
+		}
+		content: icon-char($filename);
+	}
+}
+
+.icon-calendar {
+	@include icon(calendar);
+}
+.icon-handyman-tools {
+	@include icon(handyman-tools);
+}
+.icon-logo {
+	@include icon(logo);
+}
+.icon-messages {
+	@include icon(messages);
+}
+.icon-my-profile {
+	@include icon(my-profile);
+}
+.icon-team {
+	@include icon(team);
+}

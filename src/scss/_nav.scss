@@ -1,0 +1,78 @@
+.nav {
+	display: flex;
+	flex-direction: column;
+
+	li {
+		margin-bottom: 18px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	a {
+		position: relative;
+		display: block;
+		padding: 16px 0;
+
+		&:hover {
+
+			path {
+				fill: $white_0;
+			}
+		}
+	}
+
+	.is-active {
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 4px;
+			background-color: $green_0;
+		}
+
+		path {
+			fill: $white_0;
+		}
+	}
+
+	i {
+		@include font(12px, 14px, "Roboto-Bold");
+
+		position: relative;
+		width: 20px;
+		margin: 0 auto;
+		color: $white_0;
+
+		div {
+			position: absolute;
+			top: 0;
+			right: 0;
+			transform: translate(50%, -50%);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 20px;
+			min-width: 20px;
+			padding: 0 4px;
+			border-radius: 50%;
+			background-color: $blue_1;
+
+			&::before {
+				content: attr(data-counter);
+				padding: 3px;
+			}
+		}
+	}
+
+	path {
+		fill: $gray_0;
+		fill-opacity: 1;
+		transition-property: fill;
+		transition: 0.2s linear;
+	}
+}

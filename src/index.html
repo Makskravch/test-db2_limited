@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 @@include('_head.html')
-  
-<body>
-	@@include('_header.html')
 
-	<main class="main" id="main">
-		Main
-	</main>
-	
-	@@include('_footer.html')
+<body>
+	<div class="page-container">
+
+		@@include('_aside.html')
+		@@include('_header.html')
+
+		<main class="main" id="main">
+			<div class="main__inner">
+				<div class="main__chat chat">
+					<div class="chat__contacts">
+						<ul>
+							<li>
+
+							</li>
+						</ul>
+					</div>
+					<div class="chat__body">
+						<div class="chat__body-head">
+
+						</div>
+						<div class="chat__body-field">
+
+						</div>
+						<div class="chat__body-footer">
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
 
 	@@include('_scripts.html')
 </body>
+
 </html>
