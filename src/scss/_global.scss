@@ -9,21 +9,35 @@
 
 .page-container {
 	display: grid;
-	grid-template: 
+	grid-template:
 		"aside header header" 60px
 		"aside main main" auto / 80px 1fr 1fr;
 	height: 100vh;
+
+	@media only screen and (max-width: 992px) {
+		grid-template:
+			"aside header header" 60px
+			"aside main main" auto / 60px 1fr 1fr;
+	}
 }
 
 .main {
 	grid-area: main;
-	padding: 42px 45px 105px;
+	height: calc(100vh - 60px);
+	background-color: $gray_3;
 
 	&__inner {
 		height: 100%;
+		padding: 42px 45px;
+
+		@media only screen and (max-width: 992px) {
+			padding: 30px 20px;
+		}
 	}
 
 	&__chat {
 		height: 100%;
+		border-radius: 4px;
+		box-shadow: 0 0 30px $black_2;
 	}
 }

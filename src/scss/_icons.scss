@@ -27,23 +27,44 @@
 @function icon-char($filename) {
 	$char: "";
 
-	@if $filename == calendar {
+	@if $filename == aeroplane {
 		$char: "\E001";
 	}
-	@if $filename == handyman-tools {
+	@if $filename == calendar {
 		$char: "\E002";
 	}
-	@if $filename == logo {
+	@if $filename == handyman-tools {
 		$char: "\E003";
 	}
-	@if $filename == messages {
+	@if $filename == lens {
 		$char: "\E004";
 	}
-	@if $filename == my-profile {
+	@if $filename == logo {
 		$char: "\E005";
 	}
-	@if $filename == team {
+	@if $filename == messages {
 		$char: "\E006";
+	}
+	@if $filename == msg-triangle-left {
+		$char: "\E007";
+	}
+	@if $filename == msg-triangle-right {
+		$char: "\E008";
+	}
+	@if $filename == muted {
+		$char: "\E009";
+	}
+	@if $filename == my-profile {
+		$char: "\E00A";
+	}
+	@if $filename == paper-clip {
+		$char: "\E00B";
+	}
+	@if $filename == smile {
+		$char: "\E00C";
+	}
+	@if $filename == team {
+		$char: "\E00D";
 	}
 
 	@return $char;
@@ -60,11 +81,17 @@
 	}
 }
 
+.icon-aeroplane {
+	@include icon(aeroplane);
+}
 .icon-calendar {
 	@include icon(calendar);
 }
 .icon-handyman-tools {
 	@include icon(handyman-tools);
+}
+.icon-lens {
+	@include icon(lens);
 }
 .icon-logo {
 	@include icon(logo);
@@ -72,8 +99,23 @@
 .icon-messages {
 	@include icon(messages);
 }
+.icon-msg-triangle-left {
+	@include icon(msg-triangle-left);
+}
+.icon-msg-triangle-right {
+	@include icon(msg-triangle-right);
+}
+.icon-muted {
+	@include icon(muted);
+}
 .icon-my-profile {
 	@include icon(my-profile);
+}
+.icon-paper-clip {
+	@include icon(paper-clip);
+}
+.icon-smile {
+	@include icon(smile);
 }
 .icon-team {
 	@include icon(team);

@@ -9,10 +9,18 @@ html {
 * {
 
 	&::-webkit-scrollbar {
-		display: none;
+		width: 8px;
 	}
 
-	-ms-overflow-style: none;
+	&::-webkit-scrollbar-track {
+		border-radius: 4px;
+		background-color: $gray_1;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: 4px;
+		background-color: $gray_8;
+	}
 }
 
 body, h1, h2, h3, h4, h5, h6, p, ul, li {

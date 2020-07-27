@@ -1,13 +1,230 @@
 .chat {
 	display: flex;
+	background-color: $white_0;
 
 	&__contacts {
+		flex-shrink: 0;
 		width: 300px;
+		border-right: 1px solid $gray_4;
+		overflow-y: auto;
+
+		@media only screen and (max-width: 992px) {
+			width: 200px;
+		}
 	}
 
 	&__body {
 		flex-grow: 1;
 		display: flex;
 		flex-direction: column;
+
+		&-head {
+			padding: 14px 60px 14px 16px;
+			border-bottom: 1px solid $gray_7;
+		}
+
+		&-search {
+			position: relative;
+
+			label {
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+				width: 14px;
+				cursor: pointer;
+			}
+
+			input {
+				@include font(14px, 18px, "Roboto-Regular");
+
+				width: 100%;
+				padding: 0 0 0 32px;
+				border: 0;
+				color: $black_1;
+				letter-spacing: 0.5px;
+
+				&::placeholder {
+					@include font(14px, 18px, "Roboto-Regular");
+
+					color: $black_1;
+					transition: color 0.2s ease;
+					opacity: 0.2;
+				}
+
+				&:focus {
+
+					&::placeholder {
+						color: transparent;
+					}
+				}
+			}
+		}
+
+		&-field {
+			height: calc(100% - 105px);
+			margin: 6px;
+			overflow-y: auto;
+		}
+
+		&-chatting {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			min-height: 100%;
+			padding: 22px 40px 22px 20px;
+
+			&-msg {
+				display: flex;
+				align-items: flex-end;
+				margin-top: 20px;
+
+				&.msg {
+
+					&--me {
+						align-self: flex-end;
+
+						.msg__body {
+							@include icon(msg-triangle-left);
+
+							&::before {
+								right: -1px;
+								transform: translateX(50%);
+							}
+						}
+					}
+
+					&--guest {
+						align-self: flex-start;
+
+						.msg__body {
+							@include icon(msg-triangle-right);
+
+							&::before {
+								left: -1px;
+								transform: translateX(-50%);
+							}
+						}
+					}
+				}
+
+				.msg {
+
+					&__photo {
+						position: relative;
+						height: 0;
+						width: 36px;
+						padding-bottom: 36px;
+						margin-right: 11px;
+						border-radius: 50%;
+						overflow: hidden;
+
+						img {
+							position: absolute;
+							top: 0;
+							left: 0;
+							height: 100%;
+							width: 100%;
+							object-fit: contain;
+						}
+					}
+
+					&__body {
+						position: relative;
+						display: flex;
+						justify-content: space-between;
+						align-items: flex-end;
+						width: 300px;
+						padding: 12px 14px;
+						border-radius: 5px;
+						background-color: $gray_10;
+
+						&::before {
+							position: absolute;
+							bottom: -2px;
+							font-size: 17px;
+							color: $gray_10;
+						}
+
+						p {
+							@include font(14px, 20px, "Roboto-Regular");
+
+							margin-right: 10px;
+
+							&:last-child {
+								font-size: 12px;
+								line-height: 14px;
+								margin-right: 0;
+								color: $gray_2;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&-footer	 {
+			padding: 12px 20px 12px 30px;
+			box-shadow: 0 0 20px $gray_9;
+
+			form {
+				display: flex;
+				align-items: center;
+			}
+
+			input {
+				@include font(14px, 18px, "Roboto-Regular");
+
+				flex-grow: 1;
+				padding: 0;
+				border: 0;
+				margin-right: 20px;
+				color: $black_3;
+				letter-spacing: 0.5px;
+
+				&::placeholder {
+					@include font(14px, 18px, "Roboto-Regular");
+
+					color: $black_1;
+					opacity: 0.2;
+					transition: color 0.2s ease;
+				}
+
+				&:focus {
+
+					&::placeholder {
+						color: transparent;
+					}
+				}
+			}
+		}
+
+		&-button {
+			padding: 0;
+			border: 0;
+			background-color: $white_0;
+			cursor: pointer;
+
+			i {
+				width: 20px;
+			}
+		}
+
+		.button {
+
+			&__smile {
+				margin-right: 24px;
+			}
+
+			&__paper-clip {
+				margin-right: 30px;
+			}
+
+			&__aeroplane {
+				padding: 8px;
+				border-radius: 7px;
+				box-shadow: 0 0 15px $gray_8;
+			}
+		}
 	}
 }
